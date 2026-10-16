@@ -46,6 +46,11 @@ exclude = ["evals*", "tests*"]
 [tool.pytest.ini_options]
 asyncio_mode = "auto"
 testpaths = ["tests"]
+# to get rid of the warning "PytestUnknownMarkWarning: Unknown pytest.mark.integration..."
+markers = [
+    "integration: tests that call external services (e.g. Gemini API)",
+]
+
 
 [dependency-groups]
 dev = [
