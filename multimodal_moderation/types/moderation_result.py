@@ -1,14 +1,14 @@
 from typing import Literal
 from pydantic import BaseModel, Field
 
+# Unit test for the classes below is `uv run pytest tests/test_moderation_result.py -vv`
 
 class ModerationResult(BaseModel):
-
+    
     rationale: str = Field(description="Explanation of what was harmful and why")
 
 
 class TextModerationResult(ModerationResult):
-
     contains_pii: bool = Field(description="Whether the message contains any personally-identifiable information (PII)")
     is_unfriendly: bool = Field(description="Whether unfriendly tone or content was detected")
     is_unprofessional: bool = Field(description="Whether unprofessional tone or content was detected")
@@ -33,6 +33,7 @@ class VideoModerationResult(ModerationResult):
 
 
 class AudioModerationResult(ModerationResult):
+    
     transcription: str = Field(description="The transcription of the audio")
     contains_pii: bool = Field(description="Whether the audio contains any personally-identifiable information (PII)")
     is_unfriendly: bool = Field(description="Whether unfriendly tone or content was detected")
