@@ -36,6 +36,7 @@ video_moderation_agent = Agent(
 
 
 async def moderate_video(
+    # unit test for this function is `uv run pytest tests/test_video_agent.py -vv`
     model_choice: ModelChoice,
     video_source: bytes,
     media_type: str

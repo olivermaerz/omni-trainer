@@ -35,6 +35,7 @@ audio_moderation_agent = Agent(
 
 
 async def moderate_audio(
+    # unit test for this function is `uv run pytest tests/test_audio_agent.py -vv`
     model_choice: ModelChoice,
     audio_source: bytes,
     media_type: str
